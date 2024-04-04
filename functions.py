@@ -11,7 +11,7 @@ import pandas as pd
 
 def obtener_avatar_kaggle(user):
     # Configura Selenium para usar Chrome
-    service = Service(ChromeDriverManager().install())
+    service = Service(ChromeDriverManager(version="100.0.4896.20").install())
     # Dont open the browser
     options = webdriver.ChromeOptions()
     options.add_argument("--headless") 
