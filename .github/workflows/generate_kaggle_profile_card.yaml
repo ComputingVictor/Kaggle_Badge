@@ -1,0 +1,43 @@
+name: Generate Kaggle Profile Card
+
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Kaggle Username'
+        required: true
+        default: 'your-kaggle-username'
+
+jobs:
+  generate-profile-card:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install Chromium and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: Generate Kaggle Profile Card
+      env:
+        KAGGLE_USERNAME: ${{ github.event.inputs.username }}
+      run: |
+        # Supongamos que tu script se llama script.py y espera un argumento de línea de comandos para el nombre de usuario
+        python script.py $KAGGLE_USERNAME
+
+    - name: Upload Profile Card as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: kaggle-profile-card
+        path: Kaggle_card.png
