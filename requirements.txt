@@ -4,21 +4,21 @@ asttokens==2.4.1
 attrs==23.1.0
 backcall==0.2.0
 beautifulsoup4==4.12.2
-boltons @ file:///C:/ci_311/boltons_1677729932371/work
+boltons==23.0.0
 brotlipy==0.7.0
-certifi @ file:///C:/b/abs_4a0polqwty/croot/certifi_1683875377622/work/certifi
-cffi @ file:///C:/ci_311/cffi_1676423759166/work
+certifi==2023.5.7
+cffi==1.15.1
 chardet==3.0.4
-charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
-colorama @ file:///C:/ci_311/colorama_1676422310965/work
+charset-normalizer==2.0.4
+colorama==0.4.6
 comm==0.1.4
-conda @ file:///C:/b/abs_b5q92oum8h/croot/conda_1689272261421/work
-conda-content-trust @ file:///C:/ci_311/conda-content-trust_1676467587370/work
-conda-libmamba-solver @ file:///C:/b/abs_5a9xvt2a3k/croot/conda-libmamba-solver_1685032355900/work/src
-conda-package-handling @ file:///C:/b/abs_ce4_vcfd0y/croot/conda-package-handling_1685024800103/work
-conda_package_streaming @ file:///C:/b/abs_88a7k_wmm1/croot/conda-package-streaming_1685019697115/work
+conda==23.5.2
+conda-content-trust==0.1.3
+conda-libmamba-solver==23.5.0
+conda-package-handling==2.1.0
+conda_package_streaming==0.8.0
 contourpy==1.2.0
-cryptography @ file:///C:/b/abs_b28tzldafl/croot/cryptography_1686613103834/work
+cryptography==39.0.1
 cycler==0.12.1
 datasets==2.18.0
 debugpy==1.8.0
@@ -44,16 +44,16 @@ idna==2.10
 ipykernel==6.26.0
 ipython==8.16.1
 jedi==0.19.1
-jsonpatch @ file:///tmp/build/80754af9/jsonpatch_1615747632069/work
+jsonpatch==1.32
 jsonpointer==2.1
 jupyter_client==8.5.0
 jupyter_core==5.4.0
 kiwisolver==1.4.5
-libmambapy @ file:///C:/b/abs_f0tnqlkcbn/croot/mamba-split_1685993165748/work/libmambapy
+libmambapy==1.4.1
 lxml==5.1.0
 matplotlib==3.8.3
 matplotlib-inline==0.1.6
-menuinst @ file:///C:/ci_311/menuinst_1678730372782/work
+menuinst==1.4.19
 multidict==6.0.5
 multiprocess==0.70.16
 nest-asyncio==1.5.8
@@ -61,54 +61,57 @@ numpy==1.26.1
 opencv-python==4.9.0.80
 openpyxl==3.1.2
 outcome==1.3.0.post0
-packaging @ file:///C:/b/abs_ed_kb9w6g4/croot/packaging_1678965418855/work
+packaging==23.0
 pandas==2.1.2
 parso==0.8.3
 pickleshare==0.7.5
 pillow==10.2.0
+pip==23.1.2
 platformdirs==3.11.0
-pluggy @ file:///C:/ci_311/pluggy_1676422178143/work
+pluggy==1.0.0
 prompt-toolkit==3.0.39
 psutil==5.9.6
 pure-eval==0.2.2
 pyarrow==15.0.0
 pyarrow-hotfix==0.6
-pycosat @ file:///C:/ci_311/pycosat_1676438455539/work
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pycosat==0.6.4
+pycparser==2.21
 Pygments==2.16.1
-pyOpenSSL @ file:///C:/b/abs_de215ipd18/croot/pyopenssl_1678965319166/work
+pyOpenSSL==23.0.0
 pyparsing==3.1.2
-PySocks @ file:///C:/ci_311/pysocks_1676425991111/work
+PySocks==1.7.1
 python-dateutil==2.8.2
 python-dotenv==1.0.0
 pytz==2023.3.post1
 pywin32==306
 PyYAML==6.0.1
 pyzmq==25.1.1
-requests @ file:///C:/b/abs_41owkd5ymz/croot/requests_1682607524657/work
+requests==2.29.0
 rfc3986==1.5.0
-ruamel.yaml @ file:///C:/ci_311/ruamel.yaml_1676439214109/work
+ruamel.yaml==0.17.21
 screeninfo==0.8.1
 selenium==4.14.0
-six @ file:///tmp/build/80754af9/six_1644875935023/work
+setuptools==67.8.0
+six==1.16.0
 sjvisualizer==0.0.13
 sniffio==1.3.0
 sortedcontainers==2.4.0
 soupsieve==2.5
 stack-data==0.6.3
-toolz @ file:///C:/ci_311/toolz_1676431406517/work
+toolz==0.12.0
 tornado==6.3.3
-tqdm @ file:///C:/b/abs_f76j9hg7pv/croot/tqdm_1679561871187/work
+tqdm==4.65.0
 traitlets==5.12.0
 trio==0.22.2
 trio-websocket==0.11.1
 typing_extensions==4.10.0
 tzdata==2023.3
-urllib3 @ file:///C:/b/abs_889_loyqv4/croot/urllib3_1686163174463/work
+urllib3==1.26.16
 virtualenv==20.25.1
 wcwidth==0.2.8
 webdriver-manager==4.0.1
-win-inet-pton @ file:///C:/ci_311/win_inet_pton_1676425458225/work
+wheel==0.38.4
+win-inet-pton==1.1.0
 word2number==1.1
 wsproto==1.2.0
 xxhash==3.4.1
