@@ -1,3 +1,13 @@
+name: Generate Kaggle Profile Card
+
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Kaggle Username'
+        required: true
+        default: 'your-kaggle-username'
+
 jobs:
   generate-profile-card:
     runs-on: ubuntu-latest
