@@ -7,17 +7,16 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import ChromeService
 import pandas as pd
 
 def obtener_avatar_kaggle(user):
     # Configura Selenium para usar Chrome
-    service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install())
+    service = Service(ChromeDriverManager().install())
     # Dont open the browser
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
-    options.addArguments("--no-sandbox")
-    options.addArguments("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     # Driver
     driver = webdriver.Chrome(service=service,options=options)
 
@@ -62,11 +61,11 @@ def obtener_avatar_kaggle(user):
 
 def create_kaggle_profile_card(user):
     # Configura Selenium para usar Chrome
-    service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install())
+    service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
-    options.addArguments("--no-sandbox")
-    options.addArguments("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(service=service, options=options)
 
     # Abre la URL objetivo
