@@ -14,7 +14,9 @@ def obtener_avatar_kaggle(user):
     service = Service(ChromeDriverManager().install())
     # Dont open the browser
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless") 
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     # Driver
     driver = webdriver.Chrome(service=service,options=options)
 
@@ -62,6 +64,8 @@ def create_kaggle_profile_card(user):
     service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(service=service, options=options)
 
     # Abre la URL objetivo
@@ -133,7 +137,8 @@ def create_kaggle_profile_card(user):
 
     # Guardar y mostrar la imagen
     img.save('Kaggle_card.png')
-    img.show()
+    img.save('/app/output/Kaggle_card.png')
+
 
     return df_ajustado_final
 
