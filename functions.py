@@ -137,6 +137,8 @@ def create_kaggle_profile_card(user):
 
     # Guardar y mostrar la imagen
     img.save('Kaggle_card.png')
+    img.save('/app/output/Kaggle_card.png')
+
 
     return df_ajustado_final
 
