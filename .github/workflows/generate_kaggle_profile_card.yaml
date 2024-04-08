@@ -18,5 +18,5 @@ jobs:
     - name: Run Docker container
       run: |
         docker run --name kaggle-profile-card-generator \
-        victoriosus/kaggle-badge:v2.0 \
+        victoriosus/kaggle-badge:v3.0 \
         python script.py ${{ github.event.inputs.username }}
