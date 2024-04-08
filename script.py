@@ -1,5 +1,6 @@
 import sys
 from functions import obtener_avatar_kaggle, create_kaggle_profile_card
+import time
 
 def main(user):
     # Obtenemos el avatar del usuario de Kaggle
@@ -9,6 +10,8 @@ def main(user):
     # Creamos la tarjeta de perfil de Kaggle para el usuario
     profile_card = create_kaggle_profile_card(user)
     print("Tarjeta de perfil de Kaggle creada con éxito.")
+    time.sleep(60)  # Espera 60 segundos antes de terminar
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
