@@ -18,16 +18,16 @@ jobs:
     - name: Run Docker container
       run: |
         docker run --name kaggle-profile-card-generator \
-        -v "${{ github.workspace }}:/workspace" \
-        victoriosus/kaggle-badge:v4.0 \
-        python /workspace/script.py ${{ github.event.inputs.username }}
-      working-directory: /workspace
+        victoriosus/kaggle-badge:v5.0 \
+        python script.py ${{ github.event.inputs.username }}
 
+    - name: Copy Kaggle Card from Docker container
+      run: docker cp kaggle-profile-card-generator:/Kaggle_card.png .
 
-    - name: Upload Kaggle Card as Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: kaggle-profile-card
-        path: ${{ github.workspace }}/Kaggle_card.png
-        if-no-files-found: warn
-
+    - name: Commit and Push Kaggle Card to Repository
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add Kaggle-badge.png
+        git commit -m "Add Kaggle Profile Card"
+        git push
