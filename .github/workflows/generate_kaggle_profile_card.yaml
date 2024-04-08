@@ -21,6 +21,10 @@ jobs:
         victoriosus/kaggle-badge:v5.0 \
         python script.py ${{ github.event.inputs.username }}
 
+    - name: List files in container
+      run: docker exec kaggle-profile-card-generator ls -l
+
+
     - name: Copy Kaggle Card from Docker container
       run: docker cp kaggle-profile-card-generator:/Kaggle_card.png .
 
