@@ -19,11 +19,11 @@ jobs:
       run: |
         docker run --name kaggle-profile-card-generator \
         -v "${{ github.workspace }}/output:/app/output" \
-        kaggle-profile-generator \
+        victoriosus/kaggle-badge:v5.0 \
         python script.py ${{ github.event.inputs.username }}
 
     - name: Upload Kaggle Card as Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: kaggle-card
+        name: kaggle-profile-card
         path: output/Kaggle_card.png
