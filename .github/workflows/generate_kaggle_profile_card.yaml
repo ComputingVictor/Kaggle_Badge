@@ -22,13 +22,6 @@ jobs:
         python script.py ${{ github.event.inputs.username }}
         docker cp kaggle-profile-card-generator:/Kaggle_card.png .
 
-    - name: List files in container
-      run: docker exec kaggle-profile-card-generator ls -l
-
-
-    - name: Copy Kaggle Card from Docker container
-      run: docker cp kaggle-profile-card-generator:/Kaggle_card.png .
-
     - name: Commit and Push Kaggle Card to Repository
       run: |
         git config --local user.email "action@github.com"
