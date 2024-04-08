@@ -7,11 +7,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import ChromeService
 import pandas as pd
 
 def obtener_avatar_kaggle(user):
     # Configura Selenium para usar Chrome
-    service = Service(ChromeDriverManager().install())
+    service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install())
     # Dont open the browser
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -61,7 +62,7 @@ def obtener_avatar_kaggle(user):
 
 def create_kaggle_profile_card(user):
     # Configura Selenium para usar Chrome
-    service = Service(ChromeDriverManager().install())
+    service=ChromeService(ChromeDriverManager(version='114.0.5735.90').install())
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
     options.addArguments("--no-sandbox")

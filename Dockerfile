@@ -1,31 +1,37 @@
-# Usar una imagen base oficial de Python
+# Usamos la imagen base oficial de Python 3.11
 FROM python:3.11
 
-# Establecer variables de entorno para evitar problemas con la interfaz de usuario
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Argumentos para las versiones de Chrome y Chromedriver
+ARG CHROME_VERSION="latest"
+ARG CHROMEDRIVER_VERSION="latest"
 
-# Establecer el directorio de trabajo en el contenedor
+# Instalamos dependencias necesarias para agregar repositorios HTTPS
+RUN apt-get update && apt-get install -y wget gnupg2 software-properties-common
+
+# Agregamos la llave GPG oficial de Google
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+
+# Agregamos el repositorio de Google Chrome a nuestras fuentes
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+# Actualizamos el índice de paquetes e instalamos Google Chrome
+RUN apt-get update && apt-get install -y google-chrome-stable
+
+
+# Instalamos Chromedriver
+RUN apt-get install -yqq unzip \
+    && wget -O /tmp/chromedriver.zip  http://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip \
+    && unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/ \
+    && rm /tmp/chromedriver.zip
+
+# Copiamos el archivo de requisitos primero para aprovechar la caché de Docker layer
+COPY requirements.txt /tmp/
+RUN pip install --requirement /tmp/requirements.txt
+RUN pip install webdriver-manager --upgrade
+RUN pip install packaging
+
+# Copiamos el resto del código de la aplicación
+COPY . /app
 WORKDIR /app
 
-# Instalar dependencias del sistema para Chromium y ChromeDriver
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends wget gnupg2 \
-    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends chromium chromium-driver \
-    && rm -rf /var/lib/apt/lists\
-    && apt-get install -y google-chrome-stable/*
-
-
-
-# Copiar el archivo de requisitos primero para aprovechar la cache de Docker
-COPY requirements.txt .
-
-# Instalar las dependencias de Python
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar el resto del código de la aplicación al contenedor
-COPY . .
-
+CMD ["tail", "-f", "/dev/null"]
