@@ -22,8 +22,19 @@ jobs:
         victoriosus/kaggle-badge:v5.0 \
         python script.py ${{ github.event.inputs.username }}
 
-    - name: Upload Kaggle Card as Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: kaggle-card
-        path: output/Kaggle_card.png
+    # Nuevo paso para copiar el archivo generado al directorio de trabajo
+    - name: Copy Kaggle Card to Workspace
+      run: cp output/Kaggle_card.png ${{ github.workspace }}
+
+    # Nuevo paso para configurar el usuario de git. Reemplaza con tu nombre y correo
+    - name: Configure Git
+      run: |
+        git config user.name "example"
+        git config user.email "githubactions@example.com"
+
+    # Nuevo paso para cometer y empujar el archivo al repositorio
+    - name: Commit and Push Kaggle Card to Repository
+      run: |
+        git add ${{ github.workspace }}/Kaggle_card.png
+        git commit -m "Add Kaggle Profile Card for ${{ github.event.inputs.username }}"
+        git push
